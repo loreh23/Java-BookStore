@@ -70,12 +70,12 @@ public class BookDAO {
 	}
 
 	public void deleteBook(int id) {
-    	String sql= " DELETE from book where id= ?";
+    	String sql= "DELETE from book where id= ?";
     	try {
     		PreparedStatement statement = jdbcConnection.prepareStatement(sql);
     		statement.setInt(1, id);
-			statement.executeUpdate();
-			statement.close();
+    		statement.executeUpdate();
+    		statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
