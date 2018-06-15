@@ -76,6 +76,7 @@ public class ControllerServlet extends HttpServlet {
 		bookDAO.deleteBook(id);
 		response.sendRedirect("list");
 	}
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
 
 	private void showBookAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ClassNotFoundException, SQLException, ServletException, IOException {
