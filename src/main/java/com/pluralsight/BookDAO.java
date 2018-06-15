@@ -72,9 +72,9 @@ public class BookDAO {
         return listBook;
     }
     public void deleteBook(int id) {
-    	String sql= " DELETE from book where id=?";
+    	String SQL= " DELETE from book where id= ?";
     	try {
-			PreparedStatement statement=jdbcConnection.prepareStatement(sql);
+			PreparedStatement statement=jdbcConnection.prepareStatement(SQL);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
