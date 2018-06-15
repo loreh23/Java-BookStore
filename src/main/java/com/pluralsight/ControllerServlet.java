@@ -17,6 +17,16 @@ import javax.inject.Inject;
 /**
  * Servlet implementation class HelloWorld
  */
+//RequestDispatcher dispatcher = request.getRequestDispatcher("/BookAdmin.jsp");
+//dispatcher.forward(request, response);
+// we need this two when we want to send to another page 
+
+//request.setAttribute("books", books_list);
+// this sets the name of the attribute from .jsp to the passed object
+
+// requests are requests that have data that needs to be processed, ex saving a book, a req holds the data that needs to be saved
+// after that the controller processes that data and
+// the response returns a way for us to see that the data has been processed
 
 public class ControllerServlet extends HttpServlet {
 		private static final long serialVersionUID = 1L;
@@ -81,12 +91,14 @@ public class ControllerServlet extends HttpServlet {
 	private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		int id=Integer.parseInt(request.getParameter("id"));
 		Book existingBook=bookDAO.getBook(id); 
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/BookForm.jsp");
+		request.setAttribute("book", existingBook);
+		dispatcher.forward(request, response);
 	}
 
 	private void showBookAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ClassNotFoundException, SQLException, ServletException, IOException {
 		ArrayList<Book> books_list = bookDAO.listAllBooks();
-
 		request.setAttribute("books", books_list);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/BookAdmin.jsp");
 		dispatcher.forward(request, response);
