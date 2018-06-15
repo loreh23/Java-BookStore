@@ -88,15 +88,16 @@ public class BookDAO {
 
 		return false;
 	}
-//	statement.setInt(1, id);
-//	statement.executeUpdate();
-//	statement.close();
 	public void deleteBook(int id) {
-    	String SQL= "DELETE from book where id= ?";
-    	try {
-    	 PreparedStatement statement= jdbcConnection.prepareStatement(SQL);
-    	}catch (SQLException ex) {
-    		ex.printStackTrace();
-    	}
-    }
+	      String SQL = "DELETE FROM book WHERE id = ?";
+	      try {
+	        PreparedStatement statement = jdbcConnection.prepareStatement(SQL);
+	        statement.setInt(1, id);
+	        statement.executeUpdate();
+	        statement.close();
+	      } catch (SQLException e) {
+	        e.printStackTrace();
+	      }
+	    }
+
 }
