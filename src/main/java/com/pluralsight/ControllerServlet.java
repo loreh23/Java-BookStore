@@ -59,6 +59,9 @@ public class ControllerServlet extends HttpServlet {
 				case "/insert":
 					insertBook(request, response);
           break;
+				case "/delete":
+					insertBook(request, response);
+          break;
         default:
 				   listBooks(request, response);
            break;
@@ -68,6 +71,7 @@ public class ControllerServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+	private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
 
 	private void showBookAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ClassNotFoundException, SQLException, ServletException, IOException {
