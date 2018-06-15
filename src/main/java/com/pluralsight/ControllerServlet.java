@@ -71,7 +71,10 @@ public class ControllerServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
+	private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id=Integer.parseInt(request.getParameter("id"));
+		bookDAO.deleteBook(id);
+	}
 
 	private void showBookAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ClassNotFoundException, SQLException, ServletException, IOException {
