@@ -70,7 +70,6 @@ public class ControllerServlet extends HttpServlet {
            break;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -79,7 +78,10 @@ public class ControllerServlet extends HttpServlet {
 		bookDAO.deleteBook(id);
 		response.sendRedirect("list");
 	}
-	private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { }
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+		int id=Integer.parseInt(request.getParameter("id"));
+		Book existingBook=bookDAO.getBook(id); 
+	}
 
 	private void showBookAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ClassNotFoundException, SQLException, ServletException, IOException {
